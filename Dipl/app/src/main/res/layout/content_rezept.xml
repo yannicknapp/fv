@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Rezept"
+    tools:showIn="@layout/activity_rezept">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Name"
+        android:layout_centerHorizontal="true"
+        android:textSize="50dp"
+        android:hint="name"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="calories"
+        android:id="@+id/calories"
+        android:layout_below="@+id/Name"></TextView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/price"
+        android:layout_below="@+id/calories"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/vegan"
+        android:layout_below="@+id/price"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/vegetarian"
+        android:layout_below="@+id/vegan"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/duration"
+        android:layout_below="@+id/vegetarian"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/regional"
+        android:layout_below="@+id/duration"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/origin"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/regional"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/headerIngr"
+        android:textSize="40dp"
+        android:text="Zutaten:"
+        android:layout_below="@+id/origin"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ingrediants"
+        android:layout_below="@+id/headerIngr"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/headerInstr"
+        android:textSize="40dp"
+        android:text="Zubereitung:"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/ingrediants"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/instructions"
+        android:layout_below="@+id/headerInstr"></TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/instructions"
+        android:text="aaaaaaa+\n+ asdf \n a \n aaaaaaaa+\n+ asdf \n a \n aaaaaaaa+\n+ asdf \n a \n aaaaaaaa+\n+ asdf \n a \n aaaaaaaa+\n+ asdf \n a \n a "></TextView>
+    </RelativeLayout>
+
+</ScrollView>

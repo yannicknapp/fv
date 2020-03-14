@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FreshstattTrash</string>
+    <string name="action_new">Neue Activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_new">NewActivity</string>
+    <string name="title_activity_rezept">Rezept</string>
+</resources>
