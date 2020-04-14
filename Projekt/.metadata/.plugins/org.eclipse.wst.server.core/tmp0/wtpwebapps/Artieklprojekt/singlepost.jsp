@@ -1,0 +1,111 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.Connection" %>
+<%@page import="article.DBManager" %>
+<%@page import="java.sql.SQLException" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<form action="SinglePost" method="post">
+<%try {
+	DBManager inst = DBManager.getInstance();
+	Connection con=inst.getConnection();
+	HttpSession s=request.getSession();
+	
+	String sql = "select * from article where articleID="+s.getAttribute("id");
+	Statement stm= con.createStatement();
+	ResultSet rs = stm.executeQuery(sql);
+	
+	
+	while (rs.next()){
+%>
+    <div class="col-sm-9">
+   <hr>
+      <h2><%=rs.getString("articleTitel")%></h2>
+      <h5><span class="glyphicon glyphicon-time"></span><%=rs.getString("date")%></h5>
+      <p><%=rs.getString("article")%></p>
+      <br><br>
+     
+      
+    </div>
+ <%
+}
+}catch(Exception e)
+{
+	e.printStackTrace();
+}
+%> 
+</form>
+</div>
+        <div class="col-sm-10">
+        <h2>Comments:</h2>
+<%
+	HttpSession s=request.getSession();
+	DBManager inst = DBManager.getInstance();
+	Connection con=inst.getConnection();
+	PreparedStatement pst=null;
+	String sa = "WITH RECURSIVE c AS ("	
+			+"SELECT cID, content, undercomment, articleID, 1 as level, convert ( cID, CHAR) as ORDERSTR from comment"
+			+"where undercomment is null AND articleID="+s.getAttribute("id")+""
+			+"union all"
+			+"select a.cID, a.content, a.undercomment, a.articleID, b.level+1 as level, CONCAT(b.ORDERSTR,'->',a.cID) as ORDERSTR"
+			+"from comment a join c as b on (a.undercomment = b.cID)"
+			+")"
+			+"SELECT * FROM c ORDER BY ORDERSTR";
+	
+	Statement stm= con.createStatement();
+	ResultSet rs = stm.executeQuery(sa);
+	
+	
+	while (rs.next()){
+%>
+          <h4>Anja <small>Sep 29, 2015, 9:12 PM</small></h4>
+          <p><%=rs.getString("content")%></p>
+          <br>
+        <%
+        }%>
+        </div>
+</body>
+</html>

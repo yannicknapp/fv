@@ -1,0 +1,11 @@
+INDEX VERSION 1.126
+C:\Schule\19_20\SWP-web\Projekt\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1620511666.index
+\Artieklprojekt\src
+C:\Schule\19_20\SWP-web\Projekt\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\799862075.index
+\Artieklprojekt\src
+C:\Schule\19_20\SWP-web\Projekt\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\361102396.index
+\Artieklprojekt\src
+C:\Schule\19_20\SWP-web\Projekt\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2986090770.index
+\DBExample\src
+C:\Schule\19_20\SWP-web\Projekt\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2256525739.index
+\BeispielWebMitJava\src

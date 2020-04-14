@@ -1,0 +1,48 @@
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"
+    %>
+<%@page import="java.sql.DriverManager" %>
+<%@page import="java.sql.ResultSet" %>
+<%@page import="java.sql.Statement" %>
+<%@page import="java.sql.Connection" %>
+<%@page import="article.DBManager" %>
+<%@page import="java.sql.SQLException" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Postings</title>
+</head>
+<body>
+
+
+<h1>Postings</h1>
+
+<form action="Comments" method="post">
+ <ol type="button"></ol>
+  <%
+try {
+	DBManager inst = DBManager.getInstance();
+	Connection con=inst.getConnection();
+	String sql = "select * from article";
+	Statement stm= con.createStatement();
+	ResultSet rs = stm.executeQuery(sql);
+	
+	while (rs.next()){
+%>
+  <li  name="bt" id=<%=rs.getInt("articleID")%>><%=rs.getString("articleTitel")%></button>
+  
+  <%
+}
+}catch(Exception e)
+{
+	e.printStackTrace();
+}%>
+</ol>
+  </form>
+
+</body>
+</html>

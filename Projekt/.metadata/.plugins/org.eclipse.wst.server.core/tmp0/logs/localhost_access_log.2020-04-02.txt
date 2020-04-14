@@ -1,0 +1,4 @@
+127.0.0.1 - - [02/Apr/2020:15:31:50 +0200] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [02/Apr/2020:15:31:52 +0200] "GET /Artieklprojekt/login.jsp HTTP/1.1" 200 655
+0:0:0:0:0:0:0:1 - - [02/Apr/2020:15:31:59 +0200] "POST /Artieklprojekt/login HTTP/1.1" 302 -
+0:0:0:0:0:0:0:1 - - [02/Apr/2020:15:31:59 +0200] "GET /Artieklprojekt/comments.jsp HTTP/1.1" 200 607
